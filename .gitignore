@@ -1,1 +1,4 @@
 flashcard.txt
+lib/
+bin/
+pyvenv.cfg
