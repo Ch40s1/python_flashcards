@@ -1,5 +1,6 @@
-flashcard.txt
+flashcard.json
 lib/
 bin/
 pyvenv.cfg
 __pycache__/
+

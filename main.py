@@ -11,6 +11,7 @@
 # start:
 # create a file with the format .txt
 from pathlib import Path
+import json
 
 
 class Flashcard:
@@ -29,29 +30,36 @@ class Flashcard:
         card_string += f"---------------------------------\n"
         return card_string
 
+    def delete_card(self):
+        pass
+
+    def to_json(self):
+        flashcard = {
+            "id": self.id,
+            "python": True,
+            "category": "OOP",
+            "module_name": self.module_name,
+            "description": self.description
+        }
+        return json.dumps(flashcard, indent=4)
+
 
 def create_flashcard():
     module_name = input("Enter the module name: ")
     description = input("Enter the description: ")
-    return Flashcard(module_name, description)
+    flashcard = Flashcard(module_name, description)
+    return flashcard
 
 
 def save_flashcard(file_name, flashcard):
     with open(file_name, 'a') as file:
-        file.write(flashcard.create_card())
-
-
-def __generate_id(current_id):
-    return
-
-# main function
+        file.write(flashcard.to_json() + "\n")
 
 
 def main():
-    file_name = "flashcard.txt"
+    file_name = "flashcard.json"
     file_path = Path(file_name)
 
-    # Check if the file exists
     if file_path.exists():
         print("File already exists :)")
 
@@ -81,15 +89,12 @@ def main():
             else:
                 print("Invalid choice. Please enter a valid option.")
     else:
-        print("Initial file does not exist, creating text file with welcome text.")
+        print("Initial file does not exist, creating JSON file.")
         print("Run command again when file created.")
-        # Open the file in write mode
+        flashcard = Flashcard("Example Module", "Example Description")
         with open(file_name, 'w') as file:
-            # Write the flashcard details to the file
-            file.write("Initial file\n")
-
-        # Print that the file is created
-        print(f"File {file_name} created at project_name/flashcard.txt")
+            file.write(flashcard.to_json() + "\n")
+        print(f"File {file_name} created at project_name/flashcard.json")
 
 
 # Call the main function
