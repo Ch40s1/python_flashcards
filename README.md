@@ -1,7 +1,7 @@
 
 # Python Flashcards
 
-I often struggle to keep track of all the coding I do and often wonder if I am retaining anything. This program allows you to create flashcards and store them in a JSON file, providing a convenient way to review your learning progress later on.
+I often struggle to keep track of all the coding I do and often wonder if I am retaining anything. This program allows you to create flashcards and store them in a JSON file, providing a convenient way to review your learning progress later on. Why a json? well i want to make something that a can send via a api request later on.
 
 ## Usage
 
